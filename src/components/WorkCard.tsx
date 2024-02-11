@@ -5,9 +5,9 @@ export default function WorkCard(work: Work) {
   return (
     <HoverCard.Root>
       <HoverCard.Trigger>
-        <div className="flex group items-center cursor-pointer bg-zinc-800 w-full p-4 xl:p-8 space-x-4 rounded-2xl">
+        <div className="flex group items-center cursor-pointer bg-zinc-800 w-full p-4 xl:p-8 space-x-4 rounded-2xl horizontal:p-2">
           <img className="size-6 xl:size-10" src={work.logo} alt={work.title} />
-          <h2 className="font-bold text-slate-400 group-hover:text-slate-50 transition text-base lg:text-xl xl:text-2xl">{work.title}</h2>
+          <h2 className="font-bold text-slate-400 group-hover:text-slate-50 transition text-base lg:text-xl xl:text-2xl horizontal:text-sm">{work.title}</h2>
         </div>
         <HoverCard.Portal>
           <HoverCard.Content
