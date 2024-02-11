@@ -119,7 +119,7 @@ function App() {
               <Github className="horizontal:size-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/jos%C3%A9-victor-cruz-rebou%C3%A7as-230057256/"
+              href="www.linkedin.com/in/josé-victor-cruz-rebouças-230057256"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-slate-50 transition"
