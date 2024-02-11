@@ -13,7 +13,7 @@ export default function Navbar() {
           <a className="text-slate-700" href="#works">
             Works
           </a>
-          <a className="text-slate-700" href="#">
+          <a className="text-slate-700" href="#contact">
             Contact
           </a>
         </div>

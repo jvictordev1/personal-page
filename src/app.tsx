@@ -1,25 +1,102 @@
-import * as HoverCard from "@radix-ui/react-hover-card";
 import {
   AppWindow,
   BadgePlus,
   ChevronUpCircle,
-  CircleUserRound,
   Component,
   Download,
   GaugeCircle,
   Github,
   Linkedin,
-  Notebook,
   Settings2,
 } from "lucide-react";
+import Input from "./components/Input";
 import Navbar from "./components/Navbar";
 import Section from "./components/Section";
+import WorkCard from "./components/WorkCard";
+import Work from "./shared/Work";
 
 function App() {
+  interface Helps {
+    title: string;
+    icon: React.ReactNode;
+  }
+  const skillsAndTools = [
+    "HTML5 and CSS3",
+    "Javascript",
+    "Typescript",
+    "React",
+    "Figma",
+    "UI Design",
+    "Adobe Photoshop",
+    "Prototyping",
+    "Power BI",
+  ];
+  const works: Work[] = [
+    {
+      logo: "/scasys_logo.svg",
+      logoDark: "/scasys_logo_black.svg",
+      title: "Scasys",
+      description:
+        "A Open-Source Software to simplify the calculus of the quimic impact process in nature.",
+      link: "https://github.com/Cauatn/scasys",
+    },
+    {
+      logo: "/icon.svg",
+      title: "Personal Page",
+      description:
+        "A personal website made with the purpose of learning more about React and Typescript.",
+      link: "https://github.com/jvictordev1/personal-page",
+    },
+    {
+      logo: "/nlw_logo.svg",
+      title: "Notes app",
+      description:
+        "A note app developed at the Next Level Week event, made by Rocketseat.",
+      link: "https://github.com/jvictordev1/nlw-expert-notesapp",
+    },
+  ];
+  const helps: Helps[] = [
+    {
+      title: "Improve your website",
+      icon: (
+        <ChevronUpCircle className="font-bold group-hover:text-slate-50 size-8" />
+      ),
+    },
+    {
+      title: "Create a new website",
+      icon: (
+        <BadgePlus className="font-bold group-hover:text-slate-50 size-8" />
+      ),
+    },
+    {
+      title: "Design and/or refactor UI",
+      icon: (
+        <Component className="font-bold group-hover:text-slate-50 size-8" />
+      ),
+    },
+    {
+      title: "Create a web app",
+      icon: (
+        <AppWindow className="font-bold group-hover:text-slate-50 size-8" />
+      ),
+    },
+    {
+      title: "Create a dashboard",
+      icon: (
+        <GaugeCircle className="font-bold group-hover:text-slate-50 size-8" />
+      ),
+    },
+    {
+      title: "Edit photos and posts",
+      icon: (
+        <Settings2 className="font-bold group-hover:text-slate-50 size-8" />
+      ),
+    },
+  ];
   return (
     <>
       <Navbar />
-      <Section>
+      <Section id="home">
         <div className="w-1/2 space-y-4">
           <h2 className="font-normal text-slate-600 text-2xl ml-6">
             HI, MY NAME IS JOSÉ.
@@ -32,19 +109,26 @@ function App() {
             </span>
           </h1>
           <div className="flex w-full text-slate-500 justify-center space-x-1">
-            <button className="hover:text-slate-50 transition">
+            <a
+              href="https://github.com/jvictordev1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-50 transition"
+            >
               <Github />
-            </button>
-            <button className="hover:text-slate-50 transition">
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jos%C3%A9-victor-cruz-rebou%C3%A7as-230057256/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-50 transition"
+            >
               <Linkedin />
-            </button>
+            </a>
           </div>
         </div>
       </Section>
-      <section
-        id="about-me"
-        className="flex flex-col w-full h-screen justify-center space-y-24"
-      >
+      <Section id="about-me">
         <div className="px-28 space-y-4">
           <h1 className="font-bold text-3xl text-slate-400">About me</h1>
           <p className="font-medium text-2xl text-slate-500">
@@ -64,137 +148,84 @@ function App() {
             <p className="font-bold text-xl text-zinc-900">Resume.pdf</p>
           </button>
         </div>
-        <div className="px-28 space-y-4">
+        <div className="px-28 space-y-4 w-full">
           <h1 className="font-bold text-3xl text-slate-400">
             Skills and Tools
           </h1>
           <ul className="flex w-full justify-between text-xl text-slate-500">
-            <li>HTML5 and CSS3</li>
-            <li>Javascript</li>
-            <li>Typescript</li>
-            <li>React</li>
-            <li>Figma</li>
-            <li>UI Design</li>
-            <li>Adobe Photoshop</li>
-            <li>Prototyping</li>
-            <li>Power BI</li>
+            {skillsAndTools.map((item: string) => {
+              return (
+                <li
+                  key={item}
+                  className="hover:text-sky-600 transition font-medium cursor-default"
+                >
+                  {item}
+                </li>
+              );
+            })}
           </ul>
         </div>
-      </section>
-      <section
-        id="works"
-        className="flex flex-col w-full h-screen justify-center space-y-24"
-      >
-        <div className="px-28 space-y-4 text-slate-400">
+      </Section>
+      <Section id="works">
+        <div className="w-full px-28 space-y-4 text-slate-400">
           <h1 className="font-bold text-3xl">Works</h1>
-          <ul className="grid grid-cols-3 gap-3 w-full justify-between text-xl">
-            <li>
-              <HoverCard.Root>
-                <HoverCard.Trigger>
-                  <div className="flex items-center cursor-pointer bg-zinc-800 w-full p-8 space-x-4 rounded-2xl">
-                    <svg
-                      xlinkTitle="Scasys Logo"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="size-8"
-                    >
-                      <title>Scasys Logo</title>
-                      <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
-                    </svg>
-                    <h2 className="font-bold text-2xl">Scasys</h2>
-                  </div>
-                </HoverCard.Trigger>
-                <HoverCard.Portal>
-                  <HoverCard.Content
-                    className="bg-zinc-200 flex flex-col items-center w-96 shadow-md rounded-2xl p-5"
-                    side="bottom"
-                    sideOffset={5}
-                  >
-                    <img
-                      className="size-20"
-                      src="/scasys_logo.svg"
-                      alt="Scasys logo"
-                    />
-                    <p className="py-2 px-4 font-bold text-md text-center text-slate-900">
-                      An Open-Source Software to simplify the calculus of the
-                      quimic impact process in nature.{" "}
-                      <a
-                        className="text-sky-600 underline"
-                        href="https://github.com/Cauatn/scasys"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Click here to see the repository.
-                      </a>
-                    </p>
-                    <HoverCard.Arrow className="fill-zinc-200" />
-                  </HoverCard.Content>
-                </HoverCard.Portal>
-              </HoverCard.Root>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 w-full space-x-4 p-8 rounded-2xl">
-                <CircleUserRound className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Personal Page</h2>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 space-x-4 w-full p-8 rounded-2xl">
-                <Notebook className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Notes app</h2>
-              </div>
-            </li>
+          <ul className="grid  grid-cols-3 gap-3 w-full justify-between text-xl">
+            {works.map((work: Work) => {
+              return <WorkCard key={work.title} {...work} />;
+            })}
           </ul>
         </div>
-        <div className="px-28 space-y-4 text-slate-400">
+        <div className="w-full px-28 space-y-4 text-slate-400">
           <h1 className="font-bold text-3xl">How can i help you?</h1>
           <ul className="grid grid-cols-3 gap-3 w-full justify-between text-xl">
-            <li>
-              <div className="flex items-center bg-zinc-800 w-full p-8 space-x-4 rounded-2xl">
-                <ChevronUpCircle className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Improve your website</h2>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 w-full space-x-4 p-8 rounded-2xl">
-                <BadgePlus className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Create a new website</h2>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 space-x-4 w-full p-8 rounded-2xl">
-                <Component className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">
-                  Design and/or refactor UI
-                </h2>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 space-x-4 w-full p-8 rounded-2xl">
-                <AppWindow className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Create a web app</h2>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 space-x-4 w-full p-8 rounded-2xl">
-                <GaugeCircle className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Create a dashboard</h2>
-              </div>
-            </li>
-            <li>
-              <div className="flex items-center bg-zinc-800 space-x-4 w-full p-8 rounded-2xl">
-                <Settings2 className="font-bold size-8" />
-                <h2 className="font-bold text-2xl">Edit photos and posts</h2>
-              </div>
-            </li>
+            {helps.map((help: Helps) => {
+              return (
+                <li key={help.title}>
+                  <div className="flex items-center group cursor-default bg-zinc-800 w-full space-x-4 p-8 rounded-2xl">
+                    {help.icon}
+                    <h2 className="font-bold group-hover:text-slate-50 transition text-2xl">
+                      {help.title}
+                    </h2>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
-      </section>
+      </Section>
+      <Section id="contact">
+        <div className="flex w-full justify-between px-28">
+          <div className="flex flex-col w-80 text-slate-400 space-y-4">
+            <h1 className="font-bold text-3xl">Lets work!</h1>
+            <p className="font-medium text-2xl text-slate-500">
+              Let's connect, chat about your project, or simply stay in touch.
+            </p>
+            <h3 className="font-bold text-xl">Email</h3>
+            <p className="text-medium text-slate-500">
+              josevictorcruzrb@gmail.com
+            </p>
+          </div>
+          <form action="#" className="w-1/2">
+            <div className="w-full space-y-4 text-xl font-bold text-slate-400">
+              <h1>Your name</h1>
+              <Input placeholder="Joe Jones" />
+              <h1>Email address</h1>
+              <Input placeholder="you@your_domain.com" />
+              <h1>Message</h1>
+              <textarea
+                placeholder="How can i help?"
+                className="w-full bg-transparent p-2 font-normal text-xl text-slate-50 placeholder:text-zinc-700 border-slate-500 border-2 rounded-lg outline-none"
+              />
+              <button
+                type="button"
+                className="w-full bg-transparent p-2 text-xl hover:border-zinc-50 hover:text-zinc-50 transition placeholder:text-zinc-700 border-slate-500 border-2 rounded-lg outline-none"
+              >
+                Send!
+              </button>
+            </div>
+          </form>
+        </div>
+      </Section>
     </>
   );
 }

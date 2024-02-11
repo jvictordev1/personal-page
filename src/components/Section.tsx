@@ -1,8 +1,12 @@
-export default function Section(props: { children: React.ReactNode }) {
+interface SectionProps {
+  id: string;
+  children: React.ReactNode;
+}
+export default function Section(props: SectionProps) {
   return (
     <section
-      id="home"
-      className="w-full h-screen flex items-center justify-center space-y-4"
+      id={props.id}
+      className="w-full h-screen flex flex-col items-center justify-center space-y-16"
     >
       {props.children}
     </section>
