@@ -32,10 +32,10 @@ function App() {
             </span>
           </h1>
           <div className="flex w-full text-slate-500 justify-center space-x-1">
-            <button>
+            <button className="hover:text-slate-50 transition">
               <Github />
             </button>
-            <button>
+            <button className="hover:text-slate-50 transition">
               <Linkedin />
             </button>
           </div>
