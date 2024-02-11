@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         sans: ["Roboto", "sans-serif"],
       },
+      backgroundImage: {
+        'dark-mode': "url('/images/dark-mode-wallpaper.png')",
+      }
     },
   },
   plugins: [],
