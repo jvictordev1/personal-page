@@ -203,7 +203,7 @@ function App() {
         </div>
       </Section>
       <Section id="contact">
-        <div className="flex flex-col justify-between w-full px-8 space-y-4 lg:px-28 lg:flex md:flex-row">
+        <div className="flex flex-col justify-between w-full px-8 space-y-4 lg:px-28 lg:flex md:flex-row horizontal:flex-row horizontal:gap-6">
           <div className="flex flex-col w-80 text-slate-400 space-y-4">
             <h1 className="font-bold text-2xl lg:text-3xl text-slate-400 horizontal:text-xl">
               Lets work!
