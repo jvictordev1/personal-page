@@ -2,6 +2,7 @@ interface SectionProps {
   id: string;
   children: React.ReactNode;
   toggleBackground?: boolean;
+  theme?: string;
 }
 export default function Section(props: SectionProps) {
   return (
@@ -10,7 +11,11 @@ export default function Section(props: SectionProps) {
       style={
         props.toggleBackground
           ? {
-              backgroundImage: "url(images/dark-mode-wallpaper.png)",
+              backgroundImage: `url(${
+                props.theme === "dark"
+                  ? "images/dark-mode-wallpaper.png"
+                  : "images/light-mode-wallpaper.jpg"
+              })`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }

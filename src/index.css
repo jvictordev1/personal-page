@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body * {
+  @apply transition-colors ease-linear duration-200;
+}
 ::-webkit-scrollbar {
   width: 12px;
   background-color: #27272a;
