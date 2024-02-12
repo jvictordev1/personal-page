@@ -10,7 +10,7 @@ import {
   Linkedin,
   Settings2,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./components/Input";
 import Navbar from "./components/Navbar";
 import Section from "./components/Section";
@@ -19,8 +19,14 @@ import Work from "./shared/Work";
 
 function App() {
   const [theme, setTheme] = useState("dark");
-  const [, setCurrentSection] = useState("home");
-  
+  const [currentSection, setCurrentSection] = useState("home");
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+  });
+  }, [currentSection]);
+
   interface Helps {
     title: string;
     icon: React.ReactNode;
@@ -115,7 +121,11 @@ function App() {
 
   return (
     <>
-      <Navbar toggleTheme={handleThemeChange} theme={theme} toSectionChange={setCurrentSection} />
+      <Navbar
+        toggleTheme={handleThemeChange}
+        theme={theme}
+        toSectionChange={setCurrentSection}
+      />
       <Section id="home" toggleBackground={true} theme={theme}>
         <div className="w-2/3 text-center space-y-4 lg:w-1/2">
           <h2 className="font-normal text-zinc-500 dark:text-zinc-600 text-base sm:text-2xl horizontal:text-sm">

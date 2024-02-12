@@ -11,22 +11,22 @@ interface NavbarProps {
 export default function Navbar({ toggleTheme, theme, toSectionChange }: NavbarProps) {
   const currentSections: Sections[] = [
     {
-      label: "Home",
+      label: "home",
       href: "#home",
       active: true,
     },
     {
-      label: "About me",
+      label: "about-me",
       href: "#about-me",
       active: false,
     },
     {
-      label: "Works",
+      label: "works",
       href: "#works",
       active: false,
     },
     {
-      label: "Contact",
+      label: "contact",
       href: "#contact",
       active: false,
     },
@@ -34,7 +34,7 @@ export default function Navbar({ toggleTheme, theme, toSectionChange }: NavbarPr
   const [pageSections, setPageSections] = useState<Sections[]>(currentSections);
 
   const handleSectionChange = (section: string) => {
-    pageSections.forEach((item) => {
+    currentSections.forEach((item) => {
       if (item.label === section) {
         item.active = true;
       } else {
