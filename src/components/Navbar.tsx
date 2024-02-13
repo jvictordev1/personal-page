@@ -11,38 +11,42 @@ interface NavbarProps {
 export default function Navbar({ toggleTheme, theme, toSectionChange }: NavbarProps) {
   const currentSections: Sections[] = [
     {
-      label: "home",
+      label: "Home",
+      id: "home",
       href: "#home",
       active: true,
     },
     {
-      label: "about-me",
+      label: "About me",
+      id: "about-me",
       href: "#about-me",
       active: false,
     },
     {
-      label: "works",
+      label: "Works",
+      id: "works",
       href: "#works",
       active: false,
     },
     {
-      label: "contact",
+      label: "Contact",
+      id: "contact",
       href: "#contact",
       active: false,
     },
   ];
   const [pageSections, setPageSections] = useState<Sections[]>(currentSections);
 
-  const handleSectionChange = (section: string) => {
-    currentSections.forEach((item) => {
-      if (item.label === section) {
+  const handleSectionChange = (sectionId: string) => {
+    pageSections.forEach((item) => {
+      if (item.id === sectionId) {
         item.active = true;
       } else {
         item.active = false;
       }
     });
     setPageSections(pageSections);
-    toSectionChange(section)
+    toSectionChange(sectionId)
   };
   return (
     <nav className="flex fixed w-full justify-between items-center px-8 py-8 font-bold backdrop-blur-md lg:px-28 horizontal:py-6">
@@ -55,7 +59,7 @@ export default function Navbar({ toggleTheme, theme, toSectionChange }: NavbarPr
             return (
               <a
                 key={section.label}
-                onClick={() => handleSectionChange(section.label)}
+                onClick={() => handleSectionChange(section.id)}
                 href={section.href}
                 style={
                   section.active ? { color: "#fafafa" } : { color: "#52525b" }

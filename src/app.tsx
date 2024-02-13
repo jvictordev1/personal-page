@@ -26,7 +26,6 @@ function App() {
       behavior: "smooth",
   });
   }, [currentSection]);
-
   interface Helps {
     title: string;
     icon: React.ReactNode;
