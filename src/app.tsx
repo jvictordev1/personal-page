@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import {
   AppWindow,
   BadgePlus,
@@ -10,8 +11,9 @@ import {
   Linkedin,
   Settings2,
 } from "lucide-react";
-import { useState } from "react";
+import { LegacyRef, useRef, useState } from "react";
 import ScrollSpy from "react-ui-scrollspy";
+import { Toaster, toast } from "sonner";
 import Input from "./components/Input";
 import Navbar from "./components/Navbar";
 import Section from "./components/Section";
@@ -109,6 +111,7 @@ function App() {
       ),
     },
   ];
+  const form: React.MutableRefObject<HTMLFormElement | undefined> = useRef();
 
   const handleThemeChange = () => {
     if (theme === "dark") {
@@ -121,9 +124,34 @@ function App() {
       document.documentElement.classList.remove("light");
     }
   };
+  const handleMessageSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (form.current) {
+      emailjs
+        .sendForm("service_sx7mtte", "template_d6ozw6f", form.current, {
+          publicKey: "vk9hVFs33yRCT7jWo",
+        })
+        .then(
+          () => {
+            toast.success("Email sent with success!", {
+              duration: 3000,
+              style: { background: "#e4e4e7", color: "#18181b" },
+            });
+          },
+          () => {
+            toast.error("We couldn't send your email, try again later.", {
+              duration: 3000,
+              style: { background: "#e4e4e7", color: "#18181b" },
+            });
+          }
+        );
+      form.current.reset();
+    }
+  };
 
   return (
     <>
+      <Toaster richColors />
       <Navbar toggleTheme={handleThemeChange} theme={theme} />
       <ScrollSpy scrollThrottle={100} useBoxMethod={false}>
         <Section id="home" toggleBackground={true} theme={theme}>
@@ -241,7 +269,7 @@ function App() {
               <h1 className="font-bold text-2xl lg:text-3xl text-zinc-950 dark:text-zinc-400 horizontal:text-xl">
                 Lets work!
               </h1>
-              <p className="font-medium text-zinc-500 text-xl lg:text-2xl horizontal:text-xs">
+              <p className="font-medium text-zinc-500 text-lg lg:text-2xl horizontal:text-xs">
                 Let's connect, chat about your project, or simply stay in touch.
               </p>
               <h3 className="font-bold text-xl horizontal:text-xl text-zinc-950 dark:text-zinc-400">
@@ -255,28 +283,41 @@ function App() {
               action="#"
               name="submit-email-form"
               className="w-full md:w-1/2"
+              ref={form as LegacyRef<HTMLFormElement>}
+              onSubmit={handleMessageSubmit}
             >
               <div className="w-full space-y-4 text-xl font-bold text-zinc-500">
                 <h1 className="text-base lg:text-xl horizontal:text-xs">
                   Your name
                 </h1>
-                <Input name="name" autoComplete="off" placeholder="Joe Jones" />
+                <Input
+                  name="name"
+                  autoComplete="off"
+                  placeholder="Joe Jones"
+                  type="text"
+                />
                 <h1 className="text-base lg:text-xl horizontal:text-xs">
                   Email address
                 </h1>
-                <Input name="email" autoComplete="off" placeholder="you@your_domain.com" />
+                <Input
+                  name="email"
+                  autoComplete="off"
+                  placeholder="you@your_domain.com"
+                  type="email"
+                />
                 <h1 className="text-base lg:text-xl horizontal:text-xs">
                   Message
                 </h1>
                 <textarea
                   autoComplete="off"
                   name="message"
+                  required
                   placeholder="How can i help?"
-                  className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-xl text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
+                  className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-base lg:text-xl text-zinc-700 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
                 />
                 <button
                   type="submit"
-                  className="w-full horizontal:text-xs bg-transparent p-2 text-xl hover:border-zinc-50 hover:text-zinc-50 transition placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
+                  className="w-full horizontal:text-xs bg-transparent p-2 text-base lg:text-xl hover:border-zinc-950 hover:text-zinc-950 dark:hover:border-zinc-50 dark:hover:text-zinc-50 transition placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
                 >
                   Send!
                 </button>
