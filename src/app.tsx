@@ -21,7 +21,15 @@ import WorkCard from "./components/WorkCard";
 import Work from "./shared/Work";
 
 function App() {
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState(() => {
+    if (window.localStorage.getItem("theme") === "light") {
+      document.documentElement.classList.add("light");
+      return "light";
+    } else {
+      document.documentElement.classList.add("dark");
+      return "dark";
+    }
+  })
   interface Helps {
     title: string;
     icon: React.ReactNode;
@@ -102,14 +110,19 @@ function App() {
     },
   ];
   const form: React.MutableRefObject<HTMLFormElement | undefined> = useRef();
+  if (history.scrollRestoration) {
+    history.scrollRestoration = "manual";
+  }
 
   const handleThemeChange = () => {
     if (theme === "dark") {
       setTheme("light");
+      window.localStorage.setItem("theme", "light");
       document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
     } else {
       setTheme("dark");
+      window.localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
       document.documentElement.classList.remove("light");
     }
