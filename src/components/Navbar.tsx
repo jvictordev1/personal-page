@@ -71,27 +71,24 @@ export default function Navbar({ toggleTheme, theme }: NavbarProps) {
           <DropdownMenu.Content className="text-center bg-zinc-950 dark:bg-zinc-100 rounded-xl px-4 py-3">
             {currentSections.map((section) => {
               return (
-                <>
+                <div key={section.id}>
                   <a href={section.href}>
-                    <DropdownMenu.Item
-                      key={section.id}
-                      className="text-zinc-100 dark:text-zinc-950 font-bold"
-                    >
+                    <DropdownMenu.Item className="text-zinc-100 dark:text-zinc-950 font-bold">
                       {section.label}
                     </DropdownMenu.Item>
                   </a>
                   <DropdownMenu.Separator className="bg-zinc-900 dark:bg-zinc-200 h-px my-1 " />
-                </>
+                </div>
               );
             })}
             <DropdownMenu.Item>
-              <button onClick={toggleTheme}>
+              <div className="flex justify-center w-full" onClick={toggleTheme}>
                 {theme === "dark" ? (
                   <SunMedium className="size-7 text-zinc-950" />
                 ) : (
                   <MoonStar className="size-6 text-zinc-50" />
                 )}
-              </button>
+              </div>
             </DropdownMenu.Item>
             <DropdownMenu.Arrow className="fill-zinc-950 dark:fill-zinc-100" />
           </DropdownMenu.Content>

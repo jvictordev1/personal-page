@@ -10,7 +10,7 @@ import {
   Linkedin,
   Settings2,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ScrollSpy from "react-ui-scrollspy";
 import Input from "./components/Input";
 import Navbar from "./components/Navbar";
@@ -20,12 +20,16 @@ import Work from "./shared/Work";
 
 function App() {
   const [theme, setTheme] = useState("dark");
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  //   window.location.href = "#home"
+  // }, []);
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual"; // fix para rolagem para a ultima seção visitada automaticamente
+  }
   interface Helps {
     title: string;
     icon: React.ReactNode;
@@ -247,25 +251,31 @@ function App() {
                 josevictorcruzrb@gmail.com
               </p>
             </div>
-            <form action="#" className="w-full md:w-1/2">
+            <form
+              action="#"
+              name="submit-email-form"
+              className="w-full md:w-1/2"
+            >
               <div className="w-full space-y-4 text-xl font-bold text-zinc-500">
                 <h1 className="text-base lg:text-xl horizontal:text-xs">
                   Your name
                 </h1>
-                <Input placeholder="Joe Jones" />
+                <Input name="name" autoComplete="off" placeholder="Joe Jones" />
                 <h1 className="text-base lg:text-xl horizontal:text-xs">
                   Email address
                 </h1>
-                <Input placeholder="you@your_domain.com" />
+                <Input name="email" autoComplete="off" placeholder="you@your_domain.com" />
                 <h1 className="text-base lg:text-xl horizontal:text-xs">
                   Message
                 </h1>
                 <textarea
+                  autoComplete="off"
+                  name="message"
                   placeholder="How can i help?"
                   className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-xl text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
                 />
                 <button
-                  type="button"
+                  type="submit"
                   className="w-full horizontal:text-xs bg-transparent p-2 text-xl hover:border-zinc-50 hover:text-zinc-50 transition placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
                 >
                   Send!
