@@ -14,3 +14,9 @@ body * {
 * {
   scroll-behavior: smooth;
 }
+.dark-active-scroll-spy {
+  color: #fafafa;
+}
+.light-active-scroll-spy {
+  color: #09090B;
+}
