@@ -42,7 +42,7 @@ export default function Navbar({
         José Victor
       </h1>
       <div className="hidden items-center space-x-20 text-xl md:flex">
-        <div className="space-x-4 text-zinc-500 md:text-base lg:text-xl dark:text-slate-700">
+        <div className="space-x-4 text-zinc-400 md:text-base lg:text-xl dark:text-slate-700">
           {currentSections.map((section) => {
             return (
               <a

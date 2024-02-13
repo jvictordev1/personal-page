@@ -11,12 +11,15 @@ body * {
 ::-webkit-scrollbar-thumb {
   background: #3f3f46;
 }
+html {
+  scroll-padding-top: 208px;
+}
 * {
   scroll-behavior: smooth;
 }
-.dark-active-scroll-spy {
+html.dark .active-scroll-spy {
   color: #fafafa;
 }
-.light-active-scroll-spy {
+html.light .active-scroll-spy {
   color: #09090B;
 }

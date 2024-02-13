@@ -122,11 +122,6 @@ function App() {
     <>
       <Navbar toggleTheme={handleThemeChange} theme={theme} />
       <ScrollSpy
-        activeClass={
-          theme === "dark"
-            ? "dark-active-scroll-spy"
-            : "light-active-scroll-spy"
-        }
         scrollThrottle={100}
         useBoxMethod={false}
       >
