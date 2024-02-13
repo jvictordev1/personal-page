@@ -1,4 +1,5 @@
-import { MoonStar, SunMedium } from "lucide-react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { Menu, MoonStar, SunMedium } from "lucide-react";
 import { Sections } from "../shared/Sections";
 
 interface NavbarProps {
@@ -6,10 +7,7 @@ interface NavbarProps {
   theme: string;
 }
 
-export default function Navbar({
-  toggleTheme,
-  theme,
-}: NavbarProps) {
+export default function Navbar({ toggleTheme, theme }: NavbarProps) {
   const currentSections: Sections[] = [
     {
       label: "Home",
@@ -63,6 +61,33 @@ export default function Navbar({
           )}
         </button>
       </div>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger className="flex items-center space-x-20 text-xl md:hidden">
+          <button className="text-zinc-50">
+            <Menu className="size-7" />
+          </button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content className="text-center bg-zinc-100 rounded-xl p-5">
+            {currentSections.map((section) => {
+              return (
+                <>
+                  <DropdownMenu.Item
+                    key={section.id}
+                    className="text-zinc-950 font-bold"
+                  >
+                    {section.label}
+                  </DropdownMenu.Item>
+                  {section.id !== "contact" ? (
+                    <DropdownMenu.Separator className="bg-zinc-200 h-px my-1 " />
+                  ) : null}
+                </>
+              );
+            })}
+            <DropdownMenu.Arrow className="fill-zinc-100" />
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
     </nav>
   );
 }

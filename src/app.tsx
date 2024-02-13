@@ -121,10 +121,7 @@ function App() {
   return (
     <>
       <Navbar toggleTheme={handleThemeChange} theme={theme} />
-      <ScrollSpy
-        scrollThrottle={100}
-        useBoxMethod={false}
-      >
+      <ScrollSpy scrollThrottle={100} useBoxMethod={false}>
         <Section id="home" toggleBackground={true} theme={theme}>
           <div className="w-2/3 text-center space-y-4 lg:w-1/2">
             <h2 className="font-normal text-zinc-500 dark:text-zinc-600 text-base sm:text-2xl horizontal:text-sm">
@@ -175,12 +172,15 @@ function App() {
               dictum. Etiam suscipit bibendum eros, eu vulputate libero cursus
               nec.
             </p>
-            <button className="flex items-center space-x-2 hover:px-5 transition-all duration-500 bg-zinc-950 dark:bg-zinc-200 p-2 lg:p-3 rounded-xl">
+            <a
+              href="https://drive.google.com/uc?export=download&id=11b8lS_rfSpsVSVNwLUjUUD2TwGYhYikZ&export=download"
+              className="flex w-min items-center space-x-2 hover:px-5 transition-all duration-500 bg-zinc-950 dark:bg-zinc-200 p-2 lg:p-3 rounded-xl"
+            >
               <Download className="text-zinc-50 dark:text-zinc-900 size-4 lg:size-6 horizontal:size-3" />
               <p className="font-bold text-sm lg:text-xl text-zinc-50 dark:text-zinc-900 horizontal:text-xs">
                 Resume.pdf
               </p>
-            </button>
+            </a>
           </div>
           <div className="px-8 space-y-4 lg:px-28 w-full">
             <h1 className="font-bold text-2xl lg:text-3xl text-zinc-950 dark:text-zinc-400 horizontal:text-xl">
