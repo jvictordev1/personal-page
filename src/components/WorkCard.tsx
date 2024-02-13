@@ -16,7 +16,7 @@ export default function WorkCard({ work, theme }: workCardProps) {
               src={theme === "dark" ? work.logo : work.logoDark}
               alt={work.title}
             />
-            <h2 className="font-bold text-slate-950 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-50 transition text-base lg:text-xl xl:text-2xl horizontal:text-sm">
+            <h2 className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 transition text-base lg:text-xl xl:text-2xl horizontal:text-sm">
               {work.title}
             </h2>
           </div>

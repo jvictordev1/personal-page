@@ -77,37 +77,37 @@ function App() {
     {
       title: "Improve your website",
       icon: (
-        <ChevronUpCircle className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-zinc-50 size-6 lg:size-8 horizontal:size-5" />
+        <ChevronUpCircle className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 size-6 lg:size-8 horizontal:size-5" />
       ),
     },
     {
       title: "Create a new website",
       icon: (
-        <BadgePlus className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-zinc-50 size-6 lg:size-8 horizontal:size-5" />
+        <BadgePlus className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 size-6 lg:size-8 horizontal:size-5" />
       ),
     },
     {
       title: "Design and/or refactor UI",
       icon: (
-        <Component className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-zinc-50 size-6 lg:size-8 horizontal:size-5" />
+        <Component className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 size-6 lg:size-8 horizontal:size-5" />
       ),
     },
     {
       title: "Create a web app",
       icon: (
-        <AppWindow className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-zinc-50 size-6 lg:size-8 horizontal:size-5" />
+        <AppWindow className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 size-6 lg:size-8 horizontal:size-5" />
       ),
     },
     {
       title: "Create a dashboard",
       icon: (
-        <GaugeCircle className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-zinc-50 size-6 lg:size-8 horizontal:size-5" />
+        <GaugeCircle className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 size-6 lg:size-8 horizontal:size-5" />
       ),
     },
     {
       title: "Edit photos and posts",
       icon: (
-        <Settings2 className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-zinc-50 size-6 lg:size-8 horizontal:size-5" />
+        <Settings2 className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 size-6 lg:size-8 horizontal:size-5" />
       ),
     },
   ];
@@ -135,21 +135,13 @@ function App() {
           () => {
             toast.success("Email sent with success!", {
               duration: 3000,
-              style: {
-                background: "#e4e4e7",
-                color: "#18181b",
-                border: "none",
-              },
+              style: { background: "#e4e4e7", color: "#18181b", border: "none" },
             });
           },
           () => {
             toast.error("We couldn't send your email, try again later.", {
               duration: 3000,
-              style: {
-                background: "#e4e4e7",
-                color: "#18181b",
-                border: "none",
-              },
+              style: { background: "#e4e4e7", color: "#18181b" , border: "none"},
             });
           }
         );
@@ -261,7 +253,7 @@ function App() {
                   <li key={help.title}>
                     <div className="flex group items-center cursor-pointer bg-zinc-100 dark:bg-zinc-800 w-full h-full p-4 lg:p-8 space-x-4 rounded-2xl horizontal:p-2">
                       {help.icon}
-                      <h2 className="font-bold text-slate-950 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-slate-50 transition text-xs lg:text-sm xl:text-2xl horizontal:text-xs">
+                      <h2 className="font-bold text-slate-950 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-slate-50 transition text-xs lg:text-sm xl:text-2xl horizontal:text-xs">
                         {help.title}
                       </h2>
                     </div>
@@ -321,11 +313,11 @@ function App() {
                   name="message"
                   required
                   placeholder="How can i help?"
-                  className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-base lg:text-xl text-zinc-700 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-slate-500 border-2 rounded-lg outline-none"
+                  className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-base lg:text-xl text-zinc-700 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
                 />
                 <button
                   type="submit"
-                  className="w-full horizontal:text-xs bg-transparent p-2 text-base lg:text-xl hover:border-zinc-950 hover:text-zinc-950 dark:hover:border-zinc-50 dark:hover:text-zinc-50 transition placeholder:text-zinc-700 border-slate-500 border-2 rounded-lg outline-none"
+                  className="w-full horizontal:text-xs bg-transparent p-2 text-base lg:text-xl hover:border-zinc-950 hover:text-zinc-950 dark:hover:border-zinc-50 dark:hover:text-zinc-50 transition placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
                 >
                   Send!
                 </button>
