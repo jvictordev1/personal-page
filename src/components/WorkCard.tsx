@@ -23,7 +23,7 @@ export default function WorkCard({ work, theme }: workCardProps) {
         </a>
         <HoverCard.Portal>
           <HoverCard.Content
-            className="bg-zinc-950 dark:bg-zinc-100 flex flex-col items-center w-96 shadow-md rounded-2xl p-5"
+            className="bg-zinc-950 dark:bg-zinc-100 flex flex-col items-center w-96 shadow-md rounded-2xl p-5 HoverCardContent"
             side="bottom"
             sideOffset={5}
           >

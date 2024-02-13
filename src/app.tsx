@@ -21,17 +21,7 @@ import WorkCard from "./components/WorkCard";
 import Work from "./shared/Work";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: "smooth",
-  //   });
-  //   window.location.href = "#home"
-  // }, []);
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual"; // fix para rolagem para a ultima seção visitada automaticamente
-  }
+  const [theme, setTheme] = useState("dark")
   interface Helps {
     title: string;
     icon: React.ReactNode;
@@ -152,7 +142,7 @@ function App() {
   return (
     <>
       <Toaster richColors />
-      <Navbar toggleTheme={handleThemeChange} theme={theme} />
+      <Navbar toggleTheme={handleThemeChange} theme={theme!} />
       <ScrollSpy scrollThrottle={100} useBoxMethod={false}>
         <Section id="home" toggleBackground={true} theme={theme}>
           <div className="w-2/3 text-center space-y-4 lg:w-1/2">
@@ -239,7 +229,7 @@ function App() {
             </h1>
             <ul className="grid grid-cols-1 xl:grid-cols-3 gap-3 w-full justify-between text-xl">
               {works.map((work: Work) => {
-                return <WorkCard work={work} theme={theme} key={work.title} />;
+                return <WorkCard work={work} theme={theme!} key={work.title} />;
               })}
             </ul>
           </div>

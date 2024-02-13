@@ -54,11 +54,8 @@ export default function Navbar({ toggleTheme, theme }: NavbarProps) {
           })}
         </div>
         <button onClick={toggleTheme}>
-          {theme === "dark" ? (
-            <SunMedium className="size-7" />
-          ) : (
-            <MoonStar className="size-6 text-zinc-950" />
-          )}
+          <MoonStar className="absolute text-slate-950 size-6 rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
+          <SunMedium className="size-7 rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100" />
         </button>
       </div>
       <DropdownMenu.Root>
@@ -68,7 +65,7 @@ export default function Navbar({ toggleTheme, theme }: NavbarProps) {
           </button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
-          <DropdownMenu.Content className="text-center bg-zinc-950 dark:bg-zinc-100 rounded-xl px-4 py-3">
+          <DropdownMenu.Content className="text-center bg-zinc-950 dark:bg-zinc-100 rounded-xl px-4 py-3 DropdownMenuContent">
             {currentSections.map((section) => {
               return (
                 <div key={section.id}>
