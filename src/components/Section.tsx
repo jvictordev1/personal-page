@@ -14,7 +14,7 @@ export default function Section(props: SectionProps) {
               backgroundImage: `url(${
                 props.theme === "dark"
                   ? "images/dark-mode-wallpaper.png"
-                  : "images/light-mode-wallpaper.jpg"
+                  : "images/light-mode-wallpaper.png"
               })`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
