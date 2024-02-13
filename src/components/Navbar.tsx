@@ -35,7 +35,7 @@ export default function Navbar({ toggleTheme, theme }: NavbarProps) {
     },
   ];
   return (
-    <nav className="flex fixed w-full max-h-52 justify-between items-center px-8 py-8 font-bold backdrop-blur-md lg:px-28 horizontal:py-6">
+    <nav className="flex fixed w-full max-h-40 justify-between items-center px-10 py-8 font-bold backdrop-blur-md lg:px-28 horizontal:py-6">
       <h1 className="font-semibold text-zinc-950 text-lg lg:text-2xl dark:text-slate-50">
         José Victor
       </h1>
@@ -63,28 +63,37 @@ export default function Navbar({ toggleTheme, theme }: NavbarProps) {
       </div>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger className="flex items-center space-x-20 text-xl md:hidden">
-          <button className="text-zinc-50">
+          <button className="text-zinc-950 dark:text-zinc-50">
             <Menu className="size-7" />
           </button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
-          <DropdownMenu.Content className="text-center bg-zinc-100 rounded-xl p-5">
+          <DropdownMenu.Content className="text-center bg-zinc-950 dark:bg-zinc-100 rounded-xl px-4 py-3">
             {currentSections.map((section) => {
               return (
                 <>
-                  <DropdownMenu.Item
-                    key={section.id}
-                    className="text-zinc-950 font-bold"
-                  >
-                    {section.label}
-                  </DropdownMenu.Item>
-                  {section.id !== "contact" ? (
-                    <DropdownMenu.Separator className="bg-zinc-200 h-px my-1 " />
-                  ) : null}
+                  <a href={section.href}>
+                    <DropdownMenu.Item
+                      key={section.id}
+                      className="text-zinc-100 dark:text-zinc-950 font-bold"
+                    >
+                      {section.label}
+                    </DropdownMenu.Item>
+                  </a>
+                  <DropdownMenu.Separator className="bg-zinc-900 dark:bg-zinc-200 h-px my-1 " />
                 </>
               );
             })}
-            <DropdownMenu.Arrow className="fill-zinc-100" />
+            <DropdownMenu.Item>
+              <button onClick={toggleTheme}>
+                {theme === "dark" ? (
+                  <SunMedium className="size-7 text-zinc-950" />
+                ) : (
+                  <MoonStar className="size-6 text-zinc-50" />
+                )}
+              </button>
+            </DropdownMenu.Item>
+            <DropdownMenu.Arrow className="fill-zinc-950 dark:fill-zinc-100" />
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
