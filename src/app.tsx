@@ -29,7 +29,7 @@ function App() {
       document.documentElement.classList.add("dark");
       return "dark";
     }
-  })
+  });
   interface Helps {
     title: string;
     icon: React.ReactNode;
@@ -138,13 +138,21 @@ function App() {
           () => {
             toast.success("Email sent with success!", {
               duration: 3000,
-              style: { background: "#e4e4e7", color: "#18181b", border: "none" },
+              style: {
+                background: "#e4e4e7",
+                color: "#18181b",
+                border: "none",
+              },
             });
           },
           () => {
             toast.error("We couldn't send your email, try again later.", {
               duration: 3000,
-              style: { background: "#e4e4e7", color: "#18181b" , border: "none"},
+              style: {
+                background: "#e4e4e7",
+                color: "#18181b",
+                border: "none",
+              },
             });
           }
         );
@@ -195,17 +203,12 @@ function App() {
               About me
             </h1>
             <p className="font-medium text-sm text-zinc-500 lg:text-2xl horizontal:text-xs">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et
-              ipsum ut leo varius vulputate ac quis nulla. Maecenas eu nibh
-              mauris. Fusce sem ante, ullamcorper dapibus nisi quis, volutpat
-              molestie ligula. Duis ullamcorper fringilla lacinia. Nunc ex
-              justo, sollicitudin eget turpis sit amet, bibendum tristique dui.
-              Etiam fringilla est ut mi pellentesque sagittis. Phasellus
-              facilisis velit lacinia, consectetur est ut, maximus ex. Donec
-              quis aliquam arcu, non ornare odio. Mauris id urna libero. Donec
-              tristique pretium molestie. Integer sit amet purus ut nunc aliquet
-              dictum. Etiam suscipit bibendum eros, eu vulputate libero cursus
-              nec.
+              Born in 2002 in the city of Jacobina, Bahia, i've always been a
+              fan of computers and technology. I started my journey in the world
+              of programming at the age of 19, when i joined the Federal
+              University of São Francisco valley (2020 - Nowadays). I'm
+              currently studying Front-end programming and looking forward for
+              new challenges and opportunities to learn and grow.
             </p>
             <a
               href="https://drive.google.com/uc?export=download&id=11b8lS_rfSpsVSVNwLUjUUD2TwGYhYikZ&export=download"
