@@ -135,13 +135,21 @@ function App() {
           () => {
             toast.success("Email sent with success!", {
               duration: 3000,
-              style: { background: "#e4e4e7", color: "#18181b", border: "none" },
+              style: {
+                background: "#e4e4e7",
+                color: "#18181b",
+                border: "none",
+              },
             });
           },
           () => {
             toast.error("We couldn't send your email, try again later.", {
               duration: 3000,
-              style: { background: "#e4e4e7", color: "#18181b" , border: "none"},
+              style: {
+                background: "#e4e4e7",
+                color: "#18181b",
+                border: "none",
+              },
             });
           }
         );
@@ -313,11 +321,11 @@ function App() {
                   name="message"
                   required
                   placeholder="How can i help?"
-                  className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-base lg:text-xl text-zinc-700 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
+                  className="w-full horizontal:text-xs bg-transparent p-2 font-normal text-base lg:text-xl text-zinc-700 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 border-slate-500 border-2 rounded-lg outline-none"
                 />
                 <button
                   type="submit"
-                  className="w-full horizontal:text-xs bg-transparent p-2 text-base lg:text-xl hover:border-zinc-950 hover:text-zinc-950 dark:hover:border-zinc-50 dark:hover:text-zinc-50 transition placeholder:text-zinc-700 border-zinc-500 border-2 rounded-lg outline-none"
+                  className="w-full horizontal:text-xs bg-transparent p-2 text-base lg:text-xl hover:border-zinc-950 hover:text-zinc-950 dark:hover:border-zinc-50 dark:hover:text-zinc-50 transition placeholder:text-zinc-700 border-slate-500 border-2 rounded-lg outline-none"
                 >
                   Send!
                 </button>
