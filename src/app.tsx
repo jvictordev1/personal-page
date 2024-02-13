@@ -135,13 +135,13 @@ function App() {
           () => {
             toast.success("Email sent with success!", {
               duration: 3000,
-              style: { background: "#e4e4e7", color: "#18181b" },
+              style: { background: "#e4e4e7", color: "#18181b", border: "none" },
             });
           },
           () => {
             toast.error("We couldn't send your email, try again later.", {
               duration: 3000,
-              style: { background: "#e4e4e7", color: "#18181b" },
+              style: { background: "#e4e4e7", color: "#18181b" , border: "none"},
             });
           }
         );
