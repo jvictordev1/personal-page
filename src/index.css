@@ -11,9 +11,6 @@ body * {
 ::-webkit-scrollbar-thumb {
   background: #3f3f46;
 }
-html {
-  scroll-padding-top: 208px;
-}
 * {
   scroll-behavior: smooth;
 }
