@@ -212,7 +212,7 @@ function App() {
                 Born in 2002 in the city of Jacobina, Bahia, i've always been a
                 fan of computers and technology. I started my journey in the
                 world of programming at the age of 19, when i joined the Federal
-                University of São Francisco valley (2020 - Nowadays). I'm
+                University of São Francisco valley (2021 - Nowadays). I'm
                 currently studying Front-end programming and looking forward for
                 new challenges and opportunities to learn and grow.
               </p>
